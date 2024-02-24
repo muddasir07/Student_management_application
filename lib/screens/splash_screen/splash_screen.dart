@@ -8,6 +8,8 @@ class SplashScreen extends StatefulWidget {
   //route name for our screen
   static String routeName = 'SplashScreen';
 
+  const SplashScreen({super.key});
+
   @override
   State<SplashScreen> createState() => _SplashScreenState();
 }
@@ -33,6 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
               DefaultImages.splash,
               height: 20.h,
               width: 40.w,
+             // ignore: deprecated_member_use
              color: Colors.white,
             ),
           ),
@@ -50,11 +53,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         style: Theme.of(context).textTheme.headlineSmall),
                   ],
                 ),
-                // Image.asset(
-                //   'assets/images/splash.png',
-                //   height: 25.h,
-                //   width: 50.w,
-                // ),
+           
               ],
             ),
           ),

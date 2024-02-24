@@ -5,6 +5,7 @@ import 'package:school_master/screens/attendance/attendance.dart';
 import 'package:school_master/screens/datesheet_screen/datesheet_screen.dart';
 import 'package:school_master/screens/fee_screen/fee_screen.dart';
 import 'package:school_master/screens/my_profile/my_profile.dart';
+import 'package:school_master/screens/splash_screen/splash_screen.dart';
 import 'package:school_master/services/constants.dart';
 import 'package:school_master/services/images.dart';
 import 'package:sizer/sizer.dart';
@@ -79,8 +80,6 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-
-            //other will use all the remaining height of screen
             Expanded(
               child: Container(
                 width: 100.w,
@@ -89,7 +88,6 @@ class HomeScreen extends StatelessWidget {
                   borderRadius: kTopBorderRadius,
                 ),
                 child: SingleChildScrollView(
-                  //for padding
                   physics: const BouncingScrollPhysics(),
                   child: Column(
                     children: [
@@ -98,16 +96,15 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           HomeCard(
                             onPress: () {},
-                            icon: 'assets/icons/quiz.svg',
+                            icon: DefaultImages.quiz,
                             title: 'Take Quiz',
                           ),
                           HomeCard(
                             onPress: () {
-                              //go to assignment screen here
                               Navigator.pushNamed(
                                   context, AssignmentScreen.routeName);
                             },
-                            icon: 'assets/icons/assignment.svg',
+                            icon: DefaultImages.classroom,
                             title: 'Assignments',
                           ),
                         ],
@@ -117,22 +114,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           HomeCard(
                             onPress: () {},
-                            icon: 'assets/icons/holiday.svg',
-                            title: 'Holidays',
-                          ),
-                          HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/timetable.svg',
-                            title: 'Time Table',
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/result.svg',
+                            icon: DefaultImages.result,
                             title: 'Result',
                           ),
                           HomeCard(
@@ -140,7 +122,7 @@ class HomeScreen extends StatelessWidget {
                               Navigator.pushNamed(
                                   context, DateSheetScreen.routeName);
                             },
-                            icon: 'assets/icons/datesheet.svg',
+                            icon: DefaultImages.sheet,
                             title: 'DateSheet',
                           ),
                         ],
@@ -150,27 +132,12 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           HomeCard(
                             onPress: () {},
-                            icon: 'assets/icons/ask.svg',
-                            title: 'Ask',
-                          ),
-                          HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/gallery.svg',
-                            title: 'Gallery',
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/resume.svg',
+                            icon: DefaultImages.application,
                             title: 'Leave\nApplication',
                           ),
                           HomeCard(
                             onPress: () {},
-                            icon: 'assets/icons/lock.svg',
+                            icon: DefaultImages.changepass,
                             title: 'Change\nPassword',
                           ),
                         ],
@@ -179,13 +146,11 @@ class HomeScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/event.svg',
-                            title: 'Events',
-                          ),
-                          HomeCard(
-                            onPress: () {},
-                            icon: 'assets/icons/logout.svg',
+                            onPress: () {
+                              Navigator.pushNamed(
+                                  context, SplashScreen.routeName);
+                            },
+                            icon: DefaultImages.logout,
                             title: 'Logout',
                           ),
                         ],
@@ -230,8 +195,9 @@ class HomeCard extends StatelessWidget {
           children: [
             SvgPicture.asset(
               icon,
-              height: SizerUtil.deviceType == DeviceType.tablet ? 30.sp : 20.sp,
-              width: SizerUtil.deviceType == DeviceType.tablet ? 30.sp : 40.sp,
+              height: SizerUtil.deviceType == DeviceType.tablet ? 30.sp : 35.sp,
+              width: SizerUtil.deviceType == DeviceType.tablet ? 30.sp : 35.sp,
+              // ignore: deprecated_member_use
               color: kOtherColor,
             ),
             Text(

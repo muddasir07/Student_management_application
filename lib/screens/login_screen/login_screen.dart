@@ -11,6 +11,8 @@ late bool _passwordVisible;
 class LoginScreen extends StatefulWidget {
   static String routeName = 'LoginScreen';
 
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -140,8 +142,6 @@ class _LoginScreenState extends State<LoginScreen> {
         RegExp regExp = RegExp(emailPattern);
         if (value == null || value.isEmpty) {
           return 'Please enter some text';
-          //if it does not matches the pattern, like
-          //it not contains @
         } else if (!regExp.hasMatch(value)) {
           return 'Please enter a valid email address';
         }

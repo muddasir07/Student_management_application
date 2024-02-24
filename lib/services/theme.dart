@@ -45,8 +45,7 @@ class CustomTheme {
           color: kPrimaryColor,
         ),
       ),
-      //color changes when user enters wrong information,
-      //we will use validators for this process
+
       errorBorder: const UnderlineInputBorder(
         borderSide: BorderSide(color: kErrorBorderColor, width: 1.2),
       ),
